@@ -26,7 +26,7 @@ def hello():
          while row:
                print (str(row[2]))
                row = cursor.fetchone()
-         return render_template('hello.html', name = str(row[2]))
+         return render_template('hello.html', name = "ttt")
 
    if name:
        print('Request for hello page received with name=%s' % name)
