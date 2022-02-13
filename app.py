@@ -20,10 +20,10 @@ def hello():
    driver= '{ODBC Driver 17 for SQL Server}'
 
    with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
-      return render_template('hello.html', name = name)
       with conn.cursor() as cursor:
          cursor.execute("SELECT * FROM Persons")
          row = cursor.fetchone()
+         return render_template('hello.html', name = name)
          while row:
                print (str(row[2]))
                row = cursor.fetchone()
