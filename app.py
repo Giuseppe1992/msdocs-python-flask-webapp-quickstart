@@ -38,7 +38,8 @@ def query():
                print (str(row[2]))
                row = cursor.fetchone()
    name = row[2]
-   return render_template('query.html', name = name)
+   #return render_template('query.html', name = name)
+   return render_template('hello.html', name = name)
 
 if __name__ == '__main__':
    app.run()
