@@ -23,10 +23,10 @@ def hello():
       with conn.cursor() as cursor:
          cursor.execute("SELECT * FROM Persons")
          row = cursor.fetchone()
-         return render_template('hello.html', name = name)
          while row:
                print (str(row[2]))
                row = cursor.fetchone()
+         return render_template('hello.html', name = name)
    name = row[2]
 
    if name:
