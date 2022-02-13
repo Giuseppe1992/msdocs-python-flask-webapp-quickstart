@@ -22,7 +22,7 @@ def hello():
        return redirect(url_for('index'))
 
 
-@app.route("/query", methods=["GET"])
+@app.route("/query")
 def query():
    server = 'app-service-db-server-north-europe.database.windows.net'
    database = 'app-service-db-north-europe'
@@ -37,7 +37,7 @@ def query():
          while row:
                print (str(row[2]))
                row = cursor.fetchone()
-   name = str(row[2])
+   name = row[2]
    return render_template('query.html', name = name)
 
 if __name__ == '__main__':
