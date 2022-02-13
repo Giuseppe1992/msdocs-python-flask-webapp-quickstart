@@ -12,18 +12,6 @@ def index():
 
 @app.route('/hello', methods=['POST'])
 def hello():
-   name = request.form.get('name')
-
-   if name:
-       print('Request for hello page received with name=%s' % name)
-       return render_template('hello.html', name = name)
-   else:
-       print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
-
-
-@app.route("/query")
-def query():
    server = 'app-service-db-server-north-europe.database.windows.net'
    database = 'app-service-db-north-europe'
    username = 'giuseppe'
@@ -38,8 +26,14 @@ def query():
                print (str(row[2]))
                row = cursor.fetchone()
    name = row[2]
-   #return render_template('query.html', name = name)
-   return render_template('hello.html', name = name)
+
+   if name:
+       print('Request for hello page received with name=%s' % name)
+       return render_template('hello.html', name = name)
+   else:
+       print('Request for hello page received with no name or blank name -- redirecting')
+       return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
    app.run()
