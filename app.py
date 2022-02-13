@@ -24,9 +24,8 @@ def hello():
          cursor.execute("SELECT * FROM Persons")
          row = cursor.fetchone()
          while row:
-               print (str(row[2]))
-               row = cursor.fetchone()
-         return render_template('hello.html', name = "ttt")
+               return render_template('hello.html', name = str(row[2]))
+
 
    if name:
        print('Request for hello page received with name=%s' % name)
