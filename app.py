@@ -12,6 +12,7 @@ def index():
 
 @app.route('/hello', methods=['POST'])
 def hello():
+   name = request.form.get('name')
    server = 'app-service-db-server-north-europe.database.windows.net'
    database = 'app-service-db-north-europe'
    username = 'giuseppe'
